@@ -15887,7 +15887,7 @@ dropping tables: flights, photos, steps, music
 
     <span class="n">databricks_pyodbc_cursor</span><span class="o">.</span><span class="n">fast_executemany</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">databricks_pyodbc_cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;insert into photos(file_name, size, created_date, modified_date, gcs_url) values (?, ?, ?, ?, ?)&quot;</span><span class="p">,</span> <span class="n">table_to_df_list</span><span class="p">[</span><span class="n">sqlite_table_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-    <span class="c1"># The above line is based on https://github.com/mkleehammer/pyodbc/wiki/Cursor</span>
+    <span class="c1"># The above lines are based on https://github.com/mkleehammer/pyodbc/wiki/Cursor#executemanysql-params-with-fast_executemanytrue</span>
     <span class="c1"># The idea of using .values.tolist() to convert a Pandas DataFrame into a sequence that would work with executemany came from ansen at https://stackoverflow.com/a/30185727/13097194</span>
     <span class="c1"># An alternative to tolist() would be to use .iloc or .loc to locate and add each value individually, but .values.tolist() is much simpler.</span>
     <span class="c1"># index(&#39;photos&#39;) retrieves the index number corresponding to the location of the &#39;photos&#39; table within table_to_df_list.</span>
