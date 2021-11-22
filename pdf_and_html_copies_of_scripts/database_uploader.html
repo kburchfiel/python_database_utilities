@@ -14086,13 +14086,13 @@ a.anchor-link {
 <span class="n">connect_to_heroku</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">connect_to_databricks</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="n">upload_to_aws</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_gcp</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_azure</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_snowflake</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_airtable</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_heroku</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">upload_to_databricks</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_aws_flag</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Added &#39;flag&#39; to these upload variable names to avoid a conflict with certain function names</span>
+<span class="n">upload_to_gcp_flag</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_azure_flag</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_snowflake_flag</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_airtable_flag</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_heroku_flag</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">upload_to_databricks_flag</span> <span class="o">=</span> <span class="kc">False</span>
 
 
 <span class="n">import_from_aws</span> <span class="o">=</span> <span class="kc">False</span>
@@ -15866,7 +15866,7 @@ dropping tables: flights, photos, steps, music
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The upload_to_databricks function uses pyodbc instead of SQLAlchemy. Although I was able to upload the photos, music, and steps tables to Databricks using the function, I ran into connectivity issues when uploading the flights table; as a result, I exported the flights table to a .csv file and uploaded it via the web interface instead. This method could also have been used for the other tables, of course.</p>
+<p>The upload_to_databricks() function uses pyodbc instead of SQLAlchemy. Although I was able to upload the photos, music, and steps tables to Databricks using the function, I ran into connectivity issues when uploading the flights table; as a result, I exported the flights table to a .csv file and uploaded it via the web interface instead. This method could also have been used for the other tables, of course.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -16040,32 +16040,32 @@ dropping tables: flights, photos, steps, music
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">upload_to_aws</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to AWS&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">upload_to_aws_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to AWS&quot;</span><span class="p">)</span>
     <span class="n">upload_to_database</span><span class="p">(</span><span class="n">table_to_df_list</span> <span class="o">=</span> <span class="n">table_to_df_list</span><span class="p">,</span> <span class="n">con_for_export</span> <span class="o">=</span> <span class="n">aws_sqlalchemy_psql_engine</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">upload_to_gcp</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to GCP&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_gcp_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to GCP&quot;</span><span class="p">)</span>
     <span class="n">upload_to_database</span><span class="p">(</span><span class="n">table_to_df_list</span> <span class="o">=</span> <span class="n">table_to_df_list</span><span class="p">,</span> <span class="n">con_for_export</span> <span class="o">=</span> <span class="n">gcp_sqlalchemy_psql_engine</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">upload_to_azure</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to Azure&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_azure_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to Azure&quot;</span><span class="p">)</span>
     <span class="n">upload_to_database</span><span class="p">(</span><span class="n">table_to_df_list</span> <span class="o">=</span> <span class="n">table_to_df_list</span><span class="p">,</span> <span class="n">con_for_export</span> <span class="o">=</span> <span class="n">azure_sqlalchemy_psql_engine</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">upload_to_heroku</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to Heroku&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_heroku_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to Heroku&quot;</span><span class="p">)</span>
     <span class="n">upload_to_database</span><span class="p">(</span><span class="n">table_to_df_list</span> <span class="o">=</span> <span class="n">table_to_df_list</span><span class="p">,</span> <span class="n">con_for_export</span> <span class="o">=</span> <span class="n">heroku_sqlalchemy_psql_engine</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">upload_to_snowflake</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to Snowflake&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_snowflake_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to Snowflake&quot;</span><span class="p">)</span>
     <span class="n">upload_to_snowflake</span><span class="p">(</span><span class="n">table_to_df_list</span> <span class="o">=</span> <span class="n">table_to_df_list</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">upload_to_airtable</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to Airtable&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_airtable_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to Airtable&quot;</span><span class="p">)</span>
     <span class="n">upload_to_airtable</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">upload_to_databricks</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Uploading tables to Databricks&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">upload_to_databricks_flag</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uploading tables to Databricks&quot;</span><span class="p">)</span>
     <span class="n">upload_to_databricks</span><span class="p">()</span>
 </pre></div>
 
