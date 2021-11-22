@@ -4,6 +4,8 @@ By Kenneth Burchfiel
 
 Released under the MIT license
 
+You can view my blog post regarding this repository [here](https://kburchfiel3.wordpress.com/2021/11/22/importing-data-into-online-databases-using-python/). 
+
 
 This repository contains scripts for creating, modifying, and testing databases using Python.
 
