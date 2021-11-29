@@ -64,9 +64,9 @@ The following charts, which can also be found in this repository's [metrics](htt
 
 ### 1.3. Comparing prices
 
-It would be difficult to provide a comprehensive overview of pricing differences for these seven providers. Prices vary greatly based on the parameters set for a given database (virtual CPU count, RAM, etc.) In addition, some providers offer free credits or a free trial, which may or may not fit a user's needs.
+It would be difficult to provide a comprehensive overview of pricing differences for these seven providers. Prices vary greatly based on the parameters set for a given database (virtual CPU count, RAM, etc.) My recommendation would be to determine how powerful a database you need, then compare prices for that type of database.
 
-The links below offer more information on free tiers and pricing information for each database service, with a focus on PostgreSQL.
+The links below offer more information on free service options and pricing information for each database service, with a focus on PostgreSQL.
 
 1. AWS:
     
@@ -96,17 +96,32 @@ The links below offer more information on free tiers and pricing information for
     b. [Price calculator](https://www.snowflake.com/pricing/)
 
 
+5. Airtable:
+
+    Airtable has a free option, but it's limited to just 1,200 records. Even the Enterprise plan is limited to "100,000 records per base." (See [pricing](https://airtable.com/pricing) page)
+
+
+6. Heroku:
+
+    Heroku's [pricing page](https://www.heroku.com/pricing) is focused on apps rather than databases. There is a 'Free and Hobby' plan for non-commercial projects. However, I ended up choosing the $9/month 'Hobby Basic' plan so that I could upload up to 10,000,000 rows of data. Otherwise, I would have been limited to 10,000 rows under the 'Hobby Dev' plan.
+
+7. Databricks:
+
+    a. Databricks offers a [14-day free trial](https://databricks.com/try-databricks).
+
+    b. Databricks has separate pricing pages for [AWS](https://databricks.com/product/aws-pricing), [GCP](https://databricks.com/product/gcp-pricing), and [Azure](https://databricks.com/product/azure-pricing).
+
 
 
 ## Part 2: Repository Information
 
+This repository contains three main .ipynb files along with a 'data' and 'metrics' folder.
 
+**sqlite_database_builder.ipynb** shows how to import data sources into a local SQLite database.
 
-**sqlite_database_builder** shows how to import data sources into a local SQLite database.
+**database_uploader.ipynb** demonstrates how to extract data from a SQLite database, then import it into various database services (Amazon Web Services, Google Cloud Platform, Microsoft Azure, etc.). SQLAlchemy and the to_sql Pandas function are used extensively within this program.
 
-**database_uploader** demonstrates how to extract data from a SQLite database, then import it into various database services (Amazon Web Services, Google Cloud Platform, Microsoft Azure, etc.). SQLAlchemy and the to_sql Pandas function are used extensively within this program.
-
-**database_query_timer** provides code for timing the length of various database operations.
+**database_query_timer.ipynb** provides code for timing the length of various database operations.
 
 The data folder stores the original data used in constructing the SQLite database, and the metrics folder stores the output of the database_query_timer function.
 
