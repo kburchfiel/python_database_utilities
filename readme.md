@@ -52,9 +52,18 @@ I ranked the databases based on the time required to complete each test, then co
 A table showing both the composite and individual rankings for each database can be found [here](https://github.com/kburchfiel/python_database_utilities/blob/master/metrics/overall_database_query_rankings.csv).
 
 
-The following charts show how long each database took to complete each trial of each test.
+The following charts, which can also be found in this repository's [metrics](https://github.com/kburchfiel/python_database_utilities/tree/master/metrics) folder, show how long each database took to complete each trial of each test.
 
-![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/full_import_time.png "Image")
+![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/full_import_time.png "Full import test")
+
+![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/simple_query_results_1x.png "First simple query test")
+
+![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/simple_query_results_1000x.png "Second simple query test")
+
+![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/complex_query_time.png "Complex query test")
+
+### 1.3. Comparing prices
+
 
 
 
