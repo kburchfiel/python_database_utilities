@@ -27,9 +27,9 @@ Based on my experiences, if I simply needed to create a PostgreSQL database usin
 
 ### 1.2. Comparing database import and query times
 
-**Note:** This notebook is by no means meant as a definitive assessment of the speeds of each database provider. My results were undoubtedly influenced by my configuration settings for each database, and different configuration settings would likely result in different outcomes. In addition, the tests I used may not match real-world usage scenarios. Do not use these results to make decisions about which database provider to use.
+**Note:** This summary is by no means a definitive assessment of the speeds of each database provider. My results were undoubtedly influenced by my configuration settings for each database, and different configuration settings would likely result in different outcomes. In addition, the tests I used may not match real-world usage scenarios. Do not use these results to make decisions about which database provider to use.
 
-(Note: Airtable was excluded from the testing process because it did not have enough capacity to import all of my original SQLite database's tables.)
+(Airtable was excluded from the testing process because it did not have enough capacity to import all of my original SQLite database's tables.)
 
 I used four different tests to measure database speeds:
 
@@ -63,6 +63,37 @@ The following charts, which can also be found in this repository's [metrics](htt
 ![Image](https://raw.githubusercontent.com/kburchfiel/python_database_utilities/master/metrics/complex_query_time.png "Complex query test")
 
 ### 1.3. Comparing prices
+
+It would be difficult to provide a comprehensive overview of pricing differences for these seven providers. Prices vary greatly based on the parameters set for a given database (virtual CPU count, RAM, etc.) In addition, some providers offer free credits or a free trial, which may or may not fit a user's needs.
+
+The links below offer more information on free tiers and pricing information for each database service, with a focus on PostgreSQL.
+
+1. AWS:
+    
+    a. [Amazon RDS for PostgreSQL is avaialble for free for 12 months with certain conditions.](https://aws.amazon.com/free/)
+
+    b. [PostgreSQL Pricing Calculator](https://aws.amazon.com/rds/postgresql/pricing/)
+
+2. GCP:
+
+    a. [Information about free services and credits can be found here.](https://cloud.google.com/free)
+
+    Note: [there does not appear to be a free version of PostgreSQL for GCP.](https://www.googlecloudcommunity.com/gc/Databases/Free-Tier-Postgres/td-p/168143)
+
+    b. [Cloud SQL for PostgreSQL pricing calculator](https://cloud.google.com/sql/docs/postgres/pricing)
+
+
+3. Azure:
+
+    a. [Azure Database for PostgreSQL is free for 12 months with certain conditions.](https://azure.microsoft.com/en-us/pricing/free-services/)
+
+    b. [Azure Database for PostgreSQL price calculator](https://azure.microsoft.com/en-us/pricing/details/postgresql/server/)
+
+4. Snowflake:
+
+    a. [a 'start for free' option is available.](https://signup.snowflake.com/)
+
+    b. [Price calculator](https://www.snowflake.com/pricing/)
 
 
 
